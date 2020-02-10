@@ -13,7 +13,6 @@ npm i -D stylelint-config-standard
 mkdir src
 mkdir dist
 touch src/index.js 
-touch dist/index.html
 # 4. commit and push to origin
 git add .
 git commit -m "Setup project directories"
@@ -30,11 +29,11 @@ git commit -m "Added webpack & config file"
 npm install --save-dev style-loader css-loader
 touch src/style.css
 
-echo '
+echo "
 .hello {
   color: red;
 }
-' >> src/style.css
+" >> src/style.css
 
 git add .
 git commit -m "Add css loader to webpack"
@@ -54,11 +53,11 @@ git commit -m "Add data loader to webpack"
 
 touch src/print.js
 
-echo '
+echo "
 export default function printMe() {
   console.log('I get called from print.js!');
 }
-' >> src/print.js
+" >> src/print.js
 
 # 10.1 
 
@@ -73,7 +72,7 @@ git add .
 git commit -m "Cleaning up the dist folder"
 
 # 11. Add config to webpack for asset mamgement 
-echo '
+echo "
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -128,7 +127,7 @@ module.exports = {
     },
   ],
 },
-};' >>webpack.config.js
+};" >>webpack.config.js
 
 git add .
 git commit -m "Add webpack config"
@@ -142,7 +141,7 @@ git commit -m "Add lodash"
 
 # 12. Add test code in src/index.js 
 
-echo '
+echo "
  import _ from 'lodash';
  import printMe from './print.js';
 
@@ -161,7 +160,7 @@ echo '
   }
 
   document.body.appendChild(component());
-' >> src/index.js
+" >> src/index.js
 
 git add .
 git commit -m "Add testcode in index.html"
@@ -177,6 +176,5 @@ git commit -m "[feat] first run of config with webpack"
 
 git checkout develop
 git merge setup
-git push origin develop
 
 
